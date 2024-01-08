@@ -1,0 +1,45 @@
+﻿<Window x:Class="laba5.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:laba5"
+        mc:Ignorable="d"
+        Title="Catalog" Height="450" Width="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <!--// Menu // -->
+        
+        <ToolBar Grid.Row="0">
+            <Menu>
+                <MenuItem Header="Book search by...">
+                    <MenuItem Header="By name of book" Click="SearchByNameOfBook_Click"/>
+                    <MenuItem Header="By author" Click="SearchByAutor_Click"/>
+                    <MenuItem Header="By ISBN" Click="SearchByISBN_Click"/>
+                    <MenuItem Header="By fragment" Click="SearchByFragment_Click"/>
+                    <MenuItem Header="By key-word" Click="SearchByKeyWord_Click"/>
+                </MenuItem>
+            </Menu>
+            <Button Content="Add Track" Click="AddBook_Click"/>
+            <Button Content="Exit" Click="cancelButton_Click"/>
+        </ToolBar>
+        <!-- Track List -->
+        <ListView Grid.Row="1" Name="trackListView" Margin="10">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="название" DisplayMemberBinding="{Binding Name_of_book}" Width="100"/>
+                    <GridViewColumn Header="автор" DisplayMemberBinding="{Binding Autor}" Width="100"/>
+                    <GridViewColumn Header="ISBN" DisplayMemberBinding="{Binding ISBN}" Width="70"/>
+                    <GridViewColumn Header="аннотация" DisplayMemberBinding="{Binding Annotation}" Width="150"/>
+                    <GridViewColumn Header="кратное содержание" DisplayMemberBinding="{Binding Summary}" Width="150"/>
+                    <GridViewColumn Header="текст" DisplayMemberBinding="{Binding text}" Width="210"/>
+                </GridView>
+            </ListView.View>
+        </ListView>
+    </Grid>
+</Window>
